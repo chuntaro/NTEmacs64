@@ -27,6 +27,11 @@ Windows版Emacs(通称NTEmacs)の64ビット版
 
     デフォでMINGW64になってconfigureがコケるから騙す為 (32bitビルドになる訳ではない)
     これがミソ
+    
+    $ tar tvJf emacs-24.3.92.tar.xz
+    $ cd emacs-24.3.92/
+
+    ソースを展開して移動する
 
     $ CFLAGS='-Ofast -march=corei7 -mtune=corei7' ./configure --prefix=c:/emacs24.4 --without-pop
 
