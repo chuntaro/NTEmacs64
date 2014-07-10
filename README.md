@@ -6,7 +6,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版
 ビルド方法
 ----------
 
-<http://alpha.gnu.org/gnu/emacs/pretest/emacs-24.3.91.tar.xz>
+<http://alpha.gnu.org/gnu/emacs/pretest/emacs-24.3.92.tar.xz>
 を、ソースに一切手を加ずにビルドする。
 
 ### MSYS2をインストールする
@@ -32,7 +32,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版
 
     --without-pop すると movemail.exe でPOPが使えなくなるが movemail.exe のビルドが
     コケるから仕方なく… (ソースいじらずに通す方法を思案中)
-    最適化オプションは適当に
+    インストールディレクトリや最適化オプションは適当に
 
     $ make bootstrap && make install
 
