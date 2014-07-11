@@ -8,6 +8,15 @@ Windows版Emacs(通称NTEmacs)の64ビット版
 
 **emace.zip** を展開すると **emacs/** フォルダが出来るので **emacs/bin/runemacs.exe** を実行する
 
+### 注意事項
+* gcc に **-Ofast -march=corei7 -mtune=corei7** を付けて最適化ビルドされている
+* configure でビルドした都合上 NTEmacs24.3 とはフォルダ構成が変わっている
+* 起動時に site-lisp/ が無視されている
+ * ddskk をインストールしても、起動時に設定が有効にならない
+ * package.el でインストールしたものは問題無し
+* movemail.exe で POP が使用出来ない (使ってる人は居ないと思うけど…)
+* IMEパッチは適用していないので、日本語入力に問題がある
+
 ビルド方法
 ----------
 
@@ -49,7 +58,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版
     これでおしまい (make install-strip するとなぜかexeが壊れるw)
 
 ### 今後の予定
-* ビルドしたものをコミットする
+* ~~ビルドしたものをコミットする~~
 * 不具合の修正
  * 起動時に site-lisp/ が無視されている (ddskk をインストールしても、起動時に設定が有効にならない)
  * movemail.exe の POP 対応
