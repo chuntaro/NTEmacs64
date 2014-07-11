@@ -3,6 +3,11 @@ NTEmacs64
 
 Windows版Emacs(通称NTEmacs)の64ビット版
 
+バイナリ説明
+------------
+
+**emace.zip** を展開すると **emacs/** フォルダが出来るので **emacs/bin/runemacs.exe** を実行する
+
 ビルド方法
 ----------
 
