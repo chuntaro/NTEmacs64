@@ -45,7 +45,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版 (version 24.3.92)
     $ pacman -S base-devel
     $ pacman -S mingw-w64-x86_64
 
-    どっちも超時間掛かります
+    どっちもかなり時間掛かります
 
 ### ビルドとインストール
     $ export MSYSTEM=MINGW32
@@ -71,5 +71,5 @@ Windows版Emacs(通称NTEmacs)の64ビット版 (version 24.3.92)
 ### 今後の予定
 * 不具合の修正
  * 起動時に site-lisp/ が無視されている (ddskk をインストールしても、起動時に設定が有効にならない)
- * movemail.exe の POP 対応
-* IMEパッチの適用
+ * movemail.exe の POP 対応 (使ってる人は居ないと思うので、優先度低)
+* IMEパッチの適用 (基本的にソースには一切手を加えない方針なので、優先度は低)
