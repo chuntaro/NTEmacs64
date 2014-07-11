@@ -9,6 +9,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版 (version 24.3.92)
 **emace.zip** を展開すると **emacs/** フォルダが出来るので **emacs/bin/runemacs.exe** を実行します。
 
 ### 特記事項
+* ソースには一切手を加ずにビルドしています
 * MSYS2 (MSYSの改良版) を使用してビルドしているので Cygwin に依存していません
 * gcc に **-Ofast -march=corei7 -mtune=corei7** を付けて最適化ビルドされています
 * 画像対応させる為の最低限の DLL を同梱しています (**GIF, PNG, JPEG, TIFF**)
