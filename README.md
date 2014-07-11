@@ -13,6 +13,11 @@ Windows版Emacs(通称NTEmacs)の64ビット版
 * configure でビルドした都合上 NTEmacs24.3 とはフォルダ構成が変わっている
 * 起動時に site-lisp/ が無視されている
  * ddskk をインストールしても、起動時に設定が有効にならない
+      * 明示的に以下の設定が必要    
+      ```emacs-lisp
+      (add-to-list 'load-path "c:/emacs/share/emacs/site-lisp/skk")    
+      (require 'skk-autoloads)    
+      ```
  * package.el でインストールしたものは問題無し
 * movemail.exe で POP が使用出来ない (使ってる人は居ないと思うけど…)
 * IMEパッチは適用していないので、日本語入力に問題がある
@@ -58,7 +63,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版
     これでおしまい (make install-strip するとなぜかexeが壊れるw)
 
 ### 今後の予定
-* ~~ビルドしたものをコミットする~~
+~~* ビルドしたものをコミットする~~
 * 不具合の修正
  * 起動時に site-lisp/ が無視されている (ddskk をインストールしても、起動時に設定が有効にならない)
  * movemail.exe の POP 対応
