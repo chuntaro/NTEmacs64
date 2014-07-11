@@ -10,7 +10,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版 (version 24.3.92)
 
 ### 特記事項
 * gcc に **-Ofast -march=corei7 -mtune=corei7** を付けて最適化ビルドされています
-* 画像対応させる為の最低限の DLL を同梱しています
+* 画像対応させる為の最低限の DLL を同梱しています (GIF, PNG, JPEG, TIFF)
  * 本来は SVG の表示にも対応可能ですが、依存 DLL(主にGTK+関連) が多すぎるので含めていません
 * libxml2, GnuTLS の DLL も同梱しています
  * elisp で実装されたテキストブラウザ M-x eww も動作確認済みです
