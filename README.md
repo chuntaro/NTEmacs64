@@ -9,13 +9,13 @@ Windows版Emacs(通称NTEmacs)の64ビット版
 **emace.zip** を展開すると **emacs/** フォルダが出来るので **emacs/bin/runemacs.exe** を実行する
 
 ### 特記事項
+* gcc に **-Ofast -march=corei7 -mtune=corei7** を付けて最適化ビルドされている
 * 画像対応させる為の最低限の DLL を同梱
  * 本来は SVG の表示にも対応可能だが、依存 DLL(主にGTK+関連) が多すぎるので含めていない
 * libxml2, GnuTLS の DLL も同梱
  * elisp で実装されたテキストブラウザ M-x eww も動作確認済み
 
 ### 注意事項
-* gcc に **-Ofast -march=corei7 -mtune=corei7** を付けて最適化ビルドされている
 * configure でビルドした都合上 NTEmacs24.3 とはフォルダ構成が変わっている
 * 起動時に site-lisp/ が無視されている
  * ddskk をインストールしても、起動時に設定が有効にならない
