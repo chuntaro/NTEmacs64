@@ -55,7 +55,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版 (version 24.3.92)
     デフォで MINGW64 になって configure がコケるので騙す為です (32bitビルドになる訳ではありせん)
     これがミソ
     
-    $ tar tvJf emacs-24.3.92.tar.xz
+    $ tar xvJf emacs-24.3.92.tar.xz
     $ cd emacs-24.3.92/
 
     ソースを展開してディレクトリに移動します
