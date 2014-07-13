@@ -41,7 +41,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版 (version 24.3.92)
 から **msys2-x86_64-20140704.exe** を取得しインストールします。
 
 ### 64ビット環境用のシェルの起動
-インストールディレクトリ直下の **mingw64_shell.bat** を起動します。
+インストールディレクトリ(c:/msys64)直下の **mingw64_shell.bat** を起動します。
 
 ### ビルド関連パッケージのインストール
     $ pacman -S base-devel
