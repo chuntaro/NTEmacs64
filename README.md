@@ -1,7 +1,7 @@
 NTEmacs64
 =========
 
-Windows版Emacs(通称NTEmacs)の64ビット版 (version 24.3.92)
+Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.92 (24.4の pretest 版)
 
 バイナリ説明
 ------------
