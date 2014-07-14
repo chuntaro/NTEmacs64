@@ -76,5 +76,3 @@ Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.92 (24.4 の pretes
  * ~~起動時に site-lisp/ が無視されている (ddskk をインストールしても、起動時に設定が有効にならない)~~
  * movemail.exe の POP3 対応 (使ってる人は居ないと思うので、優先度低)
 * IME パッチの適用 (基本的にソースには一切手を加えない方針なので、優先度は低)
-* 未パッチ版とパッチ適用版を作成して、movemail.exe の POP3 対応と IME パッチを適用する (優先度高)
- * IME パッチは <https://gist.github.com/ganta/5139150> を使用させてもらうかも
