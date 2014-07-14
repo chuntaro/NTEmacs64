@@ -64,6 +64,8 @@ Windows版Emacs(通称NTEmacs)の64ビット版 (version 24.3.92)
     $ make bootstrap && make install
 
     これでおしまい (make install-strip するとなぜかexeが壊れます…)
+    
+    --prefix を付けないと c:/msys64/usr/local/ 以下にインストールされています
 
 ### 今後の予定
 * 不具合の修正
