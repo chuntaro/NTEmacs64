@@ -9,7 +9,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.92 (24.4 の pretes
 **emacs24.3.92.zip** を展開すると **emacs24.3.92/** フォルダが出来るので **emacs24.3.92/bin/runemacs.exe** を実行します。
 
 ### 特記事項
-* ソースには一切手を加ずにビルドしています
+* ソースには一切手を加えずにビルドしています
 * MSYS2 (MSYS の改良版) を使用してビルドしているので Cygwin に依存していません
  * Emacs 上でのパスの扱いなどが自然になります
 * gcc に **-Ofast -march=corei7 -mtune=corei7** を付けて最適化ビルドされています
