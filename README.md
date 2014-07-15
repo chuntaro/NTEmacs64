@@ -18,6 +18,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.92 (24.4 の pretes
 * **libxml2, GnuTLS, D-Bus** の DLL も同梱しています
  * elisp で実装されたテキストブラウザ M-x eww も動作確認済みです
  * D-Bus は Linux 環境では便利な機能ですが、Windows 上ではほぼ使い道がありませんが、ビルドが通ったため同梱しています
+ * 追加した DLL は全て emacs24.3.92/bin/ 以下にあります (それ以外追加したファイルはありません)
 
 ### 注意事項
 * configure でビルドした都合上 NTEmacs24.3 とはフォルダ構成が変わっています
@@ -26,7 +27,6 @@ Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.92 (24.4 の pretes
  * Gnus は elisp で POP3 の通信を行うので movemail.exe は必須ではありません
 * IMEパッチは適用していないので MS-IME などを使用した日本語入力に問題があります
  * これは公式ビルドであっても同じです
- * 「Google日本語入力」にするとパッチ無しでスムーズに日本語が入力できるようです (未確認)
 
 ビルド方法
 ----------
@@ -45,7 +45,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.92 (24.4 の pretes
     $ pacman -S base-devel
     $ pacman -S mingw-w64-x86_64
 
-    どっちもかなり時間が掛かります
+    どちらもかなり時間が掛かります
 
 ### ビルドとインストール
     $ tar xvJf emacs-24.3.92.tar.xz
@@ -60,7 +60,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.92 (24.4 の pretes
     
     $ CFLAGS='-Ofast -march=corei7 -mtune=corei7' ./configure --without-pop
 
-    --without-pop すると movemail.exe で POP が使えなくなりますが movemail.exe のビルドがコケるので仕方なく…
+    --without-pop すると movemail.exe で POP3 が使えなくなりますが movemail.exe のビルドがコケるので仕方なく…
     (原因は判明していますが、ソースいじらずに通す方法を思案中)
     最適化オプションは適当に
     ※ --prefix=c:/emacs24.4 と指定した時に site-lisp/ が認識されない不具合が発生したので --prefix は付けません
