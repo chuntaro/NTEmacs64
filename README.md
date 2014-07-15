@@ -32,7 +32,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.92 (24.4 の pretes
 ----------
 
 <http://alpha.gnu.org/gnu/emacs/pretest/emacs-24.3.92.tar.xz>
-を、ソースに一切手を加ずにビルドします。
+を、ソースに一切手を加えずにビルドします。
 
 ### MSYS2 のインストール
 <http://sourceforge.net/projects/msys2/>
