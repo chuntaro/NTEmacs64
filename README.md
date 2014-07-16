@@ -55,7 +55,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.92 (24.4 の pretes
 
     $ export MSYSTEM=MINGW32
 
-    デフォで MINGW64 になって configure がコケるので騙す為です (32bitビルドになる訳ではありせん)
+    デフォで MINGW64 になって configure がコケるので騙す為です (32bitビルドになる訳ではありません)
     これがミソ
     
     $ CFLAGS='-Ofast -march=corei7 -mtune=corei7' ./configure --without-pop
