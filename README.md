@@ -17,6 +17,8 @@ Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.93 (24.4 の pretes
 * ソースには一切手を加えずにビルドしています
 * MSYS2 (MSYS の改良版) を使用してビルドしているので Cygwin に依存していません
  * Emacs 上でのパスの扱いなどが自然になります
+* 64bit 版です
+ * 公式ビルドは今のところ Windows 用の 64bit 版バイナリを提供していません
 * gcc に **-Ofast -march=corei7 -mtune=corei7** を付けて最適化ビルドされています
 * 画像対応させる為の最低限の DLL を同梱しています (**GIF, PNG, JPEG, TIFF**)
  * 本来は SVG の表示にも対応可能ですが、依存 DLL(主に GTK+ 関連) が多すぎるので含めていません
@@ -27,6 +29,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.93 (24.4 の pretes
 
 ### 注意事項
 * configure でビルドした都合上 NTEmacs24.3 とはフォルダ構成が変わっています
+ * 24.4 から Windows 版も全プラットフォーム共通の configure を使ってビルド出来るようになりました
  * DDSKK がフォルダ構成を認識できないようなので make する前に SKK-CFG の書き換えが必要になります
   * 設定例： (c:/emacs にコピーした場合)
   ```emacs-lisp
@@ -50,7 +53,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.93 (24.4 の pretes
 から **msys2-x86_64-20140704.exe** を取得しインストールします。
 
 ### 64ビット環境用のシェルの起動
-インストールディレクトリ(c:/msys64)直下の **mingw64_shell.bat** を起動します。
+インストールディレクトリ (c:/msys64) 直下の **mingw64_shell.bat** を起動します。
 
 ### ビルド関連パッケージのインストール
     $ pacman -S base-devel
@@ -66,7 +69,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.93 (24.4 の pretes
 
     $ export MSYSTEM=MINGW32
 
-    デフォで MINGW64 になって configure がコケるので騙す為です (32bitビルドになる訳ではありません)
+    デフォで MINGW64 になって configure がコケるので騙す為です (32bit ビルドになる訳ではありません)
     これがミソ
     
     $ CFLAGS='-Ofast -march=corei7 -mtune=corei7' ./configure --without-pop
