@@ -24,6 +24,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.93 (24.4 の pretes
  * 本来は SVG の表示にも対応可能ですが、依存 DLL(主に GTK+ 関連) が多すぎるので含めていません
 * **libxml2, GnuTLS, D-Bus** の DLL も同梱しています
  * elisp で実装されたテキストブラウザ M-x eww も動作確認済みです
+   ![emacs](app_eww.png)
  * D-Bus は Linux 環境では便利な機能ですが、Windows 上ではほぼ使い道がありませんが、ビルドが通ったため同梱しています
  * 追加した DLL は全て emacs24.3.93/bin/ 以下にあります (それ以外追加したファイルはありません)
 
