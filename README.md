@@ -1,14 +1,15 @@
 NTEmacs64
 =========
 
-Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.92 (24.4 の pretest 版)
+Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.93 (24.4 の pretest 版)
 
 バイナリ説明
 ------------
 
-**emacs24.3.92.zip** を展開すると **emacs24.3.92/** フォルダが出来るので **emacs24.3.92/bin/runemacs.exe** を実行します。
+### 起動方法
+**emacs24.3.93.zip** を展開すると **emacs24.3.93/** フォルダが出来るので **emacs24.3.93/bin/runemacs.exe** を実行します。
 
-### 特記事項
+### 特徴
 * ソースには一切手を加えずにビルドしています
 * MSYS2 (MSYS の改良版) を使用してビルドしているので Cygwin に依存していません
  * Emacs 上でのパスの扱いなどが自然になります
@@ -18,11 +19,17 @@ Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.92 (24.4 の pretes
 * **libxml2, GnuTLS, D-Bus** の DLL も同梱しています
  * elisp で実装されたテキストブラウザ M-x eww も動作確認済みです
  * D-Bus は Linux 環境では便利な機能ですが、Windows 上ではほぼ使い道がありませんが、ビルドが通ったため同梱しています
- * 追加した DLL は全て emacs24.3.92/bin/ 以下にあります (それ以外追加したファイルはありません)
+ * 追加した DLL は全て emacs24.3.93/bin/ 以下にあります (それ以外追加したファイルはありません)
 
 ### 注意事項
 * configure でビルドした都合上 NTEmacs24.3 とはフォルダ構成が変わっています
  * DDSKK がフォルダ構成を認識できないようなので make する前に SKK-CFG の書き換えが必要になります
+  * 設定例： (c:/emacs にコピーした場合)
+  ```emacs-lisp
+    (setq SKK_DATADIR "c:/emacs/share/emacs/24.3.93/etc/skk")
+    (setq SKK_INFODIR "c:/emacs/share/info")
+    (setq SKK_LISPDIR "c:/emacs/share/emacs/24.3.93/site-lisp/skk")
+  ```
 * movemail.exe で POP3 が使用出来ません (使ってる人は居ないと思いますが…)
  * Gnus は elisp で POP3 の通信を行うので movemail.exe は必須ではありません
 * IMEパッチは適用していないので MS-IME などを使用した日本語入力に問題があります
@@ -31,7 +38,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.92 (24.4 の pretes
 ビルド方法
 ----------
 
-<http://alpha.gnu.org/gnu/emacs/pretest/emacs-24.3.92.tar.xz>
+<http://alpha.gnu.org/gnu/emacs/pretest/emacs-24.3.93.tar.xz>
 を、ソースに一切手を加えずにビルドします。
 
 ### MSYS2 のインストール
@@ -48,8 +55,8 @@ Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.92 (24.4 の pretes
     どちらもかなり時間が掛かります
 
 ### ビルドとインストール
-    $ tar xvJf emacs-24.3.92.tar.xz
-    $ cd emacs-24.3.92/
+    $ tar xvJf emacs-24.3.93.tar.xz
+    $ cd emacs-24.3.93/
 
     ソースを展開してディレクトリに移動します
 
