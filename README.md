@@ -5,6 +5,8 @@ Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.93 (24.4 の pretes
 
 ![emacs](app.png)
 
+※ メニューバーとツールバーを非表示にして zenburn のテーマを適用した状態の起動画面です。
+
 バイナリ説明
 ------------
 
