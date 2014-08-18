@@ -3,6 +3,8 @@ NTEmacs64
 
 Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.93 (24.4 の pretest 版)
 
+![emacs](app.png)
+
 バイナリ説明
 ------------
 
