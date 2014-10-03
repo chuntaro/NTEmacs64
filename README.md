@@ -1,7 +1,7 @@
 NTEmacs64
 =========
 
-Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.93 (24.4 の pretest 版)
+Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.94 (24.4 の pretest 版)
 
 ![emacs](app.png)
 
@@ -11,7 +11,7 @@ Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.93 (24.4 の pretes
 ------------
 
 ### 起動方法
-**emacs24.3.93.zip** を展開すると **emacs24.3.93/** フォルダが出来るので **emacs24.3.93/bin/runemacs.exe** を実行します。
+**emacs24.3.94.zip** を展開すると **emacs24.3.94/** フォルダが出来るので **emacs24.3.94/bin/runemacs.exe** を実行します。
 
 ### 特徴
 * ソースには一切手を加えずにビルドしています
@@ -26,7 +26,8 @@ Windows版Emacs(通称NTEmacs)の64ビット版 version 24.3.93 (24.4 の pretes
  * elisp で実装されたテキストブラウザ M-x eww も動作確認済みです
    ![emacs](app_eww.png)
  * D-Bus は Linux 環境では便利な機能ですが、Windows 上ではほぼ使い道がありませんが、ビルドが通ったため同梱しています
- * 追加した DLL は全て emacs24.3.93/bin/ 以下にあります (bin/*.dll 以外追加したファイルはありません)
+ * 追加した DLL は全て emacs24.3.94/bin/ 以下にあります (bin/*.dll 以外追加したファイルはありません)
+* サウンド再生もサポート
 
 ### 注意事項
 * NTEmacs24.4 からは NTEmacs24.3 とはフォルダ構成が変わっています
@@ -43,12 +44,12 @@ Ctrl-\ で日本語入力が可能です (変換効率は悪いですが…コ�
 ビルド方法
 ----------
 
-<http://alpha.gnu.org/gnu/emacs/pretest/emacs-24.3.93.tar.xz>
+<http://alpha.gnu.org/gnu/emacs/pretest/emacs-24.3.94.tar.xz>
 を、ソースに一切手を加えずにビルドします。
 
 ### MSYS2 のインストール
 <http://sourceforge.net/projects/msys2/>
-から **msys2-x86_64-20140704.exe** を取得しインストールします。
+から **msys2-x86_64-20140910.exe** を取得しインストールします。
 
 ### 64ビット環境用のシェルの起動
 インストールディレクトリ (c:/msys64) 直下の **mingw64_shell.bat** を起動します。
@@ -60,8 +61,8 @@ Ctrl-\ で日本語入力が可能です (変換効率は悪いですが…コ�
     どちらもかなり時間が掛かります
 
 ### ビルドとインストール
-    $ tar xvJf emacs-24.3.93.tar.xz
-    $ cd emacs-24.3.93/
+    $ tar xvJf emacs-24.3.94.tar.xz
+    $ cd emacs-24.3.94/
 
     ソースを展開してディレクトリに移動します
 
@@ -70,10 +71,6 @@ Ctrl-\ で日本語入力が可能です (変換効率は悪いですが…コ�
     デフォで MINGW64 になって configure がコケるので騙す為です (32bit ビルドになる訳ではありません)
     これがミソ
 
-    $ cp c:/msys64/mingw64/include/noX/xpm.h c:/msys64/mingw64/include/noX/simx.h c:/msys64/mingw64/include/X11
-
-    XPM をサポートさせる為にヘッダファイルをコピーします (configure を書き換えても可能ですが、ソースはいじらない方針なので…)
-    
     $ CFLAGS='-Ofast -march=corei7 -mtune=corei7' ./configure --without-pop
 
     --without-pop すると movemail.exe で POP3 が使えなくなりますが movemail.exe のビルドがコケるので仕方なく…
@@ -88,6 +85,6 @@ Ctrl-\ で日本語入力が可能です (変換効率は悪いですが…コ�
     --prefix を付けないと c:/msys64/usr/local/ 以下にインストールされています
 
 ### 今後の予定
-* サウンドサポート (Windows でもサポート出来るようなので現在調査中、優先度高)
+* ~~サウンドサポート~~ (24.3.94 で対応された)
 * movemail.exe の POP3 対応 (使ってる人は居ないと思うので、優先度低)
 * IME パッチの適用 (基本的にソースには一切手を加えない方針なので、優先度は低)
