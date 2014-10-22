@@ -128,49 +128,50 @@ Ctrl-\ で日本語入力が可能です (変換効率は悪いですが…コ�
 * 以下の DLL 以外追加したファイルはありません
 * DLL は全て MSYS2 からコピーしたものです
 * 依存関係は Windows に標準インストールされているものは含めていません
-
-    emacs.exe
-    ├ libwinpthread-1.dll
-    └ libdbus-1-3.dll
-    
-    XPM
-    libXpm-noX4.dll
-    
-    JPEG
-    libjpeg-8.dll
-    
-    PNG
-    libpng16-16.dll
-    └ zlib1.dll
-    
-    GIF
-    libgif-7.dll
-    
-    TIFF
-    libtiff-5.dll
-    ├ libjbig-0.dll
-    ├ libjpeg-8.dll
-    ├ liblzma-5.dll
-    └ zlib1.dll
-    
-    LIBXML2
-    libxml2-2.dll
-    ├ libiconv-2.dll
-    ├ liblzma-5.dll
-    └ zlib1.dll
-    
-    GnuTLS
-    libgnutls-28.dll
-    ├ libwinpthread-1.dll
-    ├ libgmp-10.dll
-    ├ libhogweed-2-5.dll
-    │ ├ libgmp-10.dll
-    │ └ libnettle-4-7.dll
-    ├ libintl-8.dll
-    │ └ libiconv-2.dll
-    ├ libnettle-4-7.dll
-    ├ libp11-kit-0.dll
-    │ ├ libffi-6.dll
-    │ └ libintl-8.dll
-    ├ libtasn1-6.dll
-    └ zlib1.dll
+```
+ emacs.exe
+ ├ libwinpthread-1.dll
+ └ libdbus-1-3.dll
+ 
+ XPM
+ libXpm-noX4.dll
+ 
+ JPEG
+ libjpeg-8.dll
+ 
+ PNG
+ libpng16-16.dll
+ └ zlib1.dll
+ 
+ GIF
+ libgif-7.dll
+ 
+ TIFF
+ libtiff-5.dll
+ ├ libjbig-0.dll
+ ├ libjpeg-8.dll
+ ├ liblzma-5.dll
+ └ zlib1.dll
+ 
+ LIBXML2
+ libxml2-2.dll
+ ├ libiconv-2.dll
+ ├ liblzma-5.dll
+ └ zlib1.dll
+ 
+ GnuTLS
+ libgnutls-28.dll
+ ├ libwinpthread-1.dll
+ ├ libgmp-10.dll
+ ├ libhogweed-2-5.dll
+ │ ├ libgmp-10.dll
+ │ └ libnettle-4-7.dll
+ ├ libintl-8.dll
+ │ └ libiconv-2.dll
+ ├ libnettle-4-7.dll
+ ├ libp11-kit-0.dll
+ │ ├ libffi-6.dll
+ │ └ libintl-8.dll
+ ├ libtasn1-6.dll
+ └ zlib1.dll
+```
