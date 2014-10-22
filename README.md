@@ -11,7 +11,7 @@ Windows 版 Emacs (通称 NTEmacs) の 64bit 版 version 24.4
 ------------
 
 ### 起動方法
-**emacs24.4.zip** を展開すると **emacs24.4/** フォルダが出来るので **emacs24.4/bin/runemacs.exe** を実行します。
+**emacs-24.4.zip** を展開すると **emacs-24.4/** フォルダが出来るので **emacs-24.4/bin/runemacs.exe** を実行します。
 
 ### 特徴
 * ソースには一切手を加えずにビルドしています
@@ -26,7 +26,7 @@ Windows 版 Emacs (通称 NTEmacs) の 64bit 版 version 24.4
  * elisp で実装されたテキストブラウザ M-x eww も動作確認済みです
    ![emacs](app_eww.png)
  * D-Bus は Linux 環境では便利な機能ですが、Windows 上ではほぼ使い道がありませんが、ビルドが通ったため同梱しています
- * 追加した DLL は全て emacs24.4/bin/ 以下にあります (bin/*.dll 以外追加したファイルはありません)
+ * 追加した DLL は全て emacs-24.4/bin/ 以下にあります (bin/*.dll 以外追加したファイルはありません)
 * サウンド再生もサポート
 
 ### 注意事項
@@ -84,8 +84,8 @@ Ctrl-\ で日本語入力が可能です (変換効率は悪いですが…コ�
 * ~~movemail.exe の POP3 対応~~ (24.4 で対応された、Rmail で動作確認済み)
 * IME パッチの適用 (基本的にソースには一切手を加えない方針なので、優先度は低)
 
-ビルド情報
-----------
+ビルド関連追記
+--------------
 
 ### configure の出力抜粋
     Configured for `x86_64-pc-mingw32'.
@@ -124,7 +124,7 @@ Ctrl-\ で日本語入力が可能です (変換効率は悪いですが…コ�
       Does Emacs directly use zlib?                           yes
       Does Emacs use toolkit scroll bars?                     yes
 
-### emacs24.4/bin/*.dll の依存関係など
+### emacs-24.4/bin/*.dll の依存関係など
 * 以下の DLL 以外追加したファイルはありません
 * DLL は全て MSYS2 からコピーしたものです
 * 依存関係は Windows に標準インストールされているものは含めていません
@@ -175,3 +175,12 @@ Ctrl-\ で日本語入力が可能です (変換効率は悪いですが…コ�
  ├ libtasn1-6.dll
  └ zlib1.dll
 ```
+
+### Help から C のソースに設定無しで飛ぶ方法
+* emacs-24.4.zip を c:/emacs-24.4 に展開して emacs-24.4.tar.xz を同じフォルダに展開すると
+Help から C のソースに自動で飛ぶようになります
+(emacs-24.4.zip と emacs-24.4.tar.xz は被るフォルダやファイルは無いので上書きの心配はありません)
+ * c:/emacs-24.4 でないと毎回聞かれる事になるので、以下の設定が必要です
+  ```emacs-lisp
+    (setq source-directory "/path/to/emacs/source/dir")
+  ```
