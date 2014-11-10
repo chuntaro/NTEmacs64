@@ -10,6 +10,9 @@ Windows 版 Emacs (通称 NTEmacs) の 64bit 版 version 24.4
 バイナリ説明
 ------------
 
+**emacs-24.4.zip** IMEパッチ未適用版 (ソースに一切手を加えずにビルドしたバージョン)
+**emacs-24.4-IME-patched.zip** IMEパッチ適用版
+
 ### 起動方法
 **emacs-24.4.zip** を展開すると **emacs-24.4/** フォルダが出来るので **emacs-24.4/bin/runemacs.exe** を実行します。
 
@@ -28,6 +31,17 @@ Windows 版 Emacs (通称 NTEmacs) の 64bit 版 version 24.4
  * D-Bus は Linux 環境では便利な機能ですが、Windows 上ではほぼ使い道がありませんが、ビルドが通ったため同梱しています
  * 追加した DLL は全て emacs-24.4/bin/ 以下にあります (bin/*.dll 以外追加したファイルはありません)
 * サウンド再生もサポート
+* IMEパッチを適用したビルドを別途追加しました
+ * <https://gist.github.com/rzl24ozi> で最小構成に整理されたIMEパッチがアップされたので、それを適用しました  
+パッチを整理していただきありがとうございます！  
+IMEを有効にするには以下の設定が必要です  
+  ```emacs-lisp
+  (set-language-environment "Japanese")
+  (w32-ime-initialize)
+  (setq default-input-method "W32-IME")
+  (setq-default w32-ime-mode-line-state-indicator "[--]")
+  (setq w32-ime-mode-line-state-indicator-list '("[--]" "[あ]" "[--]"))
+  ```
 
 ### 注意事項
 * NTEmacs24.4 からは NTEmacs24.3 とはフォルダ構成が変わっています
@@ -70,6 +84,12 @@ Help は C-\ で日本語入力モードにした後に C-h C-\ return で見る
 
     ソースを展開してディレクトリに移動します
 
+    $ patch -p0 < emacs-24.4-w32-ime.diff
+    $ autoconf
+
+    IMEパッチを適用する場合はパッチあてて configure スクリプトを更新します
+    適用しない場合は上記2行は実行しないでください
+
     $ export MSYSTEM=MINGW32
 
     デフォで MINGW64 になって configure がコケるので騙す為です (32bit ビルドになる訳ではありません)
@@ -87,8 +107,20 @@ Help は C-\ で日本語入力モードにした後に C-h C-\ return で見る
     --prefix を付けないと c:/msys64/usr/local/ 以下にインストールされています
 
 ### 今後の予定
-* ~~movemail.exe の POP3 対応~~ (24.4 で対応された、Rmail で動作確認済み)
-* IME パッチの適用 (基本的にソースには一切手を加えない方針なので、優先度は低)
+* ~~IME パッチの適用~~ (別途追加しました)
+
+## 謝辞
+そもそもの発端は、公式ビルド含め巷のビルドは自分で納得できるものがなかったので  
+色々調べているうちに MSYS2 を使えば出来そうな事が分かり、ビルドしてみた事が始まりでした。  
+
+最終的に「64bit版・最適化ビルド・ソース未変更」のビルドを作成する事は出来たので、ひとまず満足しています。  
+さらに [rzl24ozi 氏](https://gist.github.com/rzl24ozi) によりIMEパッチを整理して頂いた為IMEパッチ版も追加してみました。  
+
+最後に、このような素晴らしいソフトウェアを生み出し改良し続けている関係者の方々に最大限の感謝を表し──  
+
+Have Fun!
+
+
 
 ビルド関連追記
 --------------
@@ -129,6 +161,46 @@ Help は C-\ で日本語入力モードにした後に C-h C-\ return で見る
       Does Emacs use -lxft?                                   no
       Does Emacs directly use zlib?                           yes
       Does Emacs use toolkit scroll bars?                     yes
+
+### configure の出力抜粋 (IMEパッチ版)
+    Configured for `x86_64-pc-mingw32'.
+    
+      Where should the build process find the source code?    .
+      What compiler should emacs be built with?               gcc  -std=gnu99 -Ofast -march=corei7 -mtune=corei7
+      Should Emacs use the GNU version of malloc?             yes
+      Should Emacs use a relocating allocator for buffers?    yes
+      Should Emacs use mmap(2) for buffer allocation?         no
+      What window system should Emacs use?                    w32
+      What toolkit should Emacs use?                          none
+      Where do we find X Windows header files?                NONE
+      Where do we find X Windows libraries?                   NONE
+      Does Emacs use -lXaw3d?                                 no
+      Does Emacs use -lXpm?                                   yes
+      Does Emacs use -ljpeg?                                  yes
+      Does Emacs use -ltiff?                                  yes
+      Does Emacs use a gif library?                           yes
+      Does Emacs use a png library?                           yes
+      Does Emacs use -lrsvg-2?                                yes
+      Does Emacs use imagemagick?                             no
+      Does Emacs support sound?                               yes
+      Does Emacs use -lgpm?                                   no
+      Does Emacs use -ldbus?                                  yes
+      Does Emacs use -lgconf?                                 no
+      Does Emacs use GSettings?                               no
+      Does Emacs use a file notification library?             yes (w32)
+      Does Emacs use access control lists?                    yes
+      Does Emacs use -lselinux?                               no
+      Does Emacs use -lgnutls?                                yes
+      Does Emacs use -lxml2?                                  yes
+      Does Emacs use -lfreetype?                              no
+      Does Emacs use -lm17n-flt?                              no
+      Does Emacs use -lotf?                                   no
+      Does Emacs use -lxft?                                   no
+      Does Emacs directly use zlib?                           yes
+      Does Emacs use toolkit scroll bars?                     yes
+      Does Emacs support W32-IME?                             yes
+      Does Emacs support RECONVERSION?                        yes
+      Does Emacs support DOCUMENTFEED?                        yes
 
 ### emacs-24.4/bin/*.dll の依存関係など
 * 以下の DLL 以外追加したファイルはありません
