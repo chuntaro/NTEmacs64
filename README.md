@@ -10,7 +10,7 @@ Windows 版 Emacs (通称 NTEmacs) の 64bit 版 version 24.4
 バイナリ説明
 ------------
 
-**emacs-24.4.zip** IMEパッチ未適用版 (ソースに一切手を加えずにビルドしたバージョン)
+**emacs-24.4.zip** IMEパッチ未適用版 (ソースに一切手を加えずにビルドしたバージョン)  
 **emacs-24.4-IME-patched.zip** IMEパッチ適用版
 
 ### 起動方法
