@@ -264,3 +264,4 @@ Help から C のソースに自動で飛ぶようになります
   ```emacs-lisp
     (setq source-directory "/path/to/emacs/source/dir")
   ```
+ * (追記) ソースを全部コピーすると Help 参照時に妙なエラーになるので、ひとまず src フォルダのみコピーするとよさそうです
