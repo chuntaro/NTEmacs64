@@ -10,14 +10,16 @@ Windows 版 Emacs (通称 NTEmacs) の 64bit 版 version 24.4
 バイナリ説明
 ------------
 
-**emacs-24.4.zip** IMEパッチ未適用版 (ソースに一切手を加えずにビルドしたバージョン)  
-**emacs-24.4-IME-patched.zip** IMEパッチ適用版
+ファイル | 説明
+------------- | -------------
+**emacs-24.4.zip** | IMEパッチ未適用版 (ソースに一切手を加えずにビルドしたバージョン)
+**emacs-24.4-IME-patched.zip** | IMEパッチ適用版
 
 ### 起動方法
 **emacs-24.4.zip** を展開すると **emacs-24.4/** フォルダが出来るので **emacs-24.4/bin/runemacs.exe** を実行します。
 
 ### 特徴
-* ソースには一切手を加えずにビルドしています
+* ソースには一切手を加えずにビルドしています (**emacs-24.4.zip** が該当)
 * MSYS2 (MSYS の改良版) を使用してビルドしているので Cygwin に依存していません
  * Emacs 上でのパスの扱いなどが自然になります
 * 64bit 版です
@@ -36,7 +38,7 @@ Windows 版 Emacs (通称 NTEmacs) の 64bit 版 version 24.4
 パッチを整理していただきありがとうございます！  
 IMEを有効にするには以下の設定が必要です  
   ```emacs-lisp
-  (set-language-environment "Japanese")
+  (set-language-environment "Japanese") ;; "Japanese" → "UTF-8" でもOK
   (w32-ime-initialize)
   (setq default-input-method "W32-IME")
   (setq-default w32-ime-mode-line-state-indicator "[--]")
@@ -47,7 +49,7 @@ IMEを有効にするには以下の設定が必要です
 * NTEmacs24.4 からは NTEmacs24.3 とはフォルダ構成が変わっています
  * 古い DDSKK はフォルダ構成を認識できない問題や 24.4 で使用する場合に不具合があります  
 DDSKK は cvs 版のバージョン 15.1.91 以降を使用してください
-* IMEパッチは適用していないので MS-IME などを使用した日本語入力に問題があります
+* IMEパッチは適用していないので MS-IME などを使用した日本語入力に問題があります (**emacs-24.4.zip** が該当)
  * これは公式ビルドであっても同じです
  * Google 日本語入力であれば入力が可能な事を確認しました  
 (ただしIMEパッチ適用時のような、変換中の文字が Emacs 内で表示される訳ではありません)
