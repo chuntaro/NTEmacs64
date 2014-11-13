@@ -39,11 +39,13 @@ Windows 版 Emacs (通称 NTEmacs) の 64bit 版 version 24.4
 パッチを整理していただきありがとうございます！  
 IMEを有効にするには以下の設定が必要です  
   ```emacs-lisp
-  (set-language-environment "Japanese") ;; "Japanese" → "UTF-8" でもOK
-  (w32-ime-initialize)
-  (setq default-input-method "W32-IME")
-  (setq-default w32-ime-mode-line-state-indicator "[--]")
-  (setq w32-ime-mode-line-state-indicator-list '("[--]" "[あ]" "[--]"))
+    (setq default-input-method "W32-IME")
+    (setq-default w32-ime-mode-line-state-indicator "[--]")
+    (setq w32-ime-mode-line-state-indicator-list '("[--]" "[あ]" "[--]"))
+    (w32-ime-initialize)
+    ;; 日本語入力時にカーソルの色を変える設定 (色は適宜変えてください)
+    (add-hook 'w32-ime-on-hook '(lambda () (set-cursor-color "coral4")))
+    (add-hook 'w32-ime-off-hook '(lambda () (set-cursor-color "black")))
   ```
 
 ### 注意事項
