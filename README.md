@@ -1,7 +1,7 @@
 NTEmacs64
 =========
 
-Windows 版 Emacs (通称 NTEmacs) の 64bit 版 version 24.4
+Windows 版 Emacs (通称 NTEmacs) の 64bit 版 version 24.5
 
 ![emacs](app.png)
 
@@ -12,15 +12,15 @@ Windows 版 Emacs (通称 NTEmacs) の 64bit 版 version 24.4
 
 ファイル | 説明
 ------------- | -------------
-**emacs-24.4.zip** | IMEパッチ未適用版 (ソースに一切手を加えずにビルドしたバージョン)
-**emacs-24.4-IME-patched-generic-cpu.zip** | IMEパッチ適用版 (AMD の一部の CPU で起動出来ない問題が発生したので **-Ofast -march=x86-64 -mtune=corei7** でビルドしたバージョン)
-**emacs-24.4-IME-patched.zip** | IMEパッチ適用版
+**emacs-24.5.zip** | IMEパッチ未適用版 (ソースに一切手を加えずにビルドしたバージョン)
+**emacs-24.5-IME-patched-generic-cpu.zip** | IMEパッチ適用版 (AMD の一部の CPU で起動出来ない問題が発生したので **-Ofast -march=x86-64 -mtune=corei7** でビルドしたバージョン)
+**emacs-24.5-IME-patched.zip** | IMEパッチ適用版
 
 ### 起動方法
-**emacs-24.4.zip** を展開すると **emacs-24.4/** フォルダが出来るので **emacs-24.4/bin/runemacs.exe** を実行します。
+**emacs-24.5.zip** を展開すると **emacs-24.5/** フォルダが出来るので **emacs-24.5/bin/runemacs.exe** を実行します。
 
 ### 特徴
-* ソースには一切手を加えずにビルドしています (**emacs-24.4.zip** が該当)
+* ソースには一切手を加えずにビルドしています (**emacs-24.5.zip** が該当)
 * MSYS2 (MSYS の改良版) を使用してビルドしているので Cygwin に依存していません
  * Emacs 上でのパスの扱いなどが自然になります
 * 64bit 版です
@@ -28,17 +28,17 @@ Windows 版 Emacs (通称 NTEmacs) の 64bit 版 version 24.4
 * gcc に **-Ofast -march=corei7 -mtune=corei7** を付けて最適化ビルドされています
 * 画像対応させる為の最低限の DLL を同梱しています (**GIF, PNG, JPEG, TIFF, XPM**)
  * 本来は SVG の表示にも対応可能ですが、依存 DLL(主に GTK+ 関連) が多すぎるので含めていません
-* **libxml2, GnuTLS, D-Bus** の DLL も同梱しています
+* **libxml2, GnuTLS** の DLL も同梱しています
  * elisp で実装されたテキストブラウザ M-x eww も動作確認済みです
    ![emacs](app_eww.png)
- * D-Bus は Linux 環境では便利な機能ですが、Windows 上ではほぼ使い道がありませんが、ビルドが通ったため同梱しています
- * 追加した DLL は全て emacs-24.4/bin/ 以下にあります (bin/*.dll 以外追加したファイルはありません)
+ * 追加した DLL は全て emacs-24.5/bin/ 以下にあります (bin/*.dll 以外追加したファイルはありません)
 * サウンド再生もサポート
-* IMEパッチを適用したビルドを別途追加しました
+* IMEパッチを適用したビルドを別途追加しました (**emacs-24.5-IME-patched.zip** が該当)
  * <https://gist.github.com/rzl24ozi> で最小構成に整理されたIMEパッチがアップされたので、それを適用しました  
 パッチを整理していただきありがとうございます！  
 IMEを有効にするには以下の設定が必要です  
   ```emacs-lisp
+    ;; (set-language-environment "UTF-8") ;; UTF-8でも問題ないので適宜コメントアウトしてください
     (setq default-input-method "W32-IME")
     (setq-default w32-ime-mode-line-state-indicator "[--]")
     (setq w32-ime-mode-line-state-indicator-list '("[--]" "[あ]" "[--]"))
@@ -49,13 +49,13 @@ IMEを有効にするには以下の設定が必要です
   ```
 
 ### 注意事項
-* NTEmacs24.4 からは NTEmacs24.3 とはフォルダ構成が変わっています
- * 古い DDSKK はフォルダ構成を認識できない問題や 24.4 で使用する場合に不具合があります  
-DDSKK は cvs 版のバージョン 15.1.91 以降を使用してください
-* IMEパッチは適用していないので MS-IME などを使用した日本語入力に問題があります (**emacs-24.4.zip** が該当)
+* NTEmacs24.5 からは NTEmacs24.3 とはフォルダ構成が変わっています
+ * 古い DDSKK はフォルダ構成を認識できない問題や 24.5 で使用する場合に不具合があります  
+DDSKK はバージョン 15.2 以降を使用してください
+* IMEパッチは適用していないので MS-IME などを使用した日本語入力に問題があります (**emacs-24.5.zip** が該当)
  * これは公式ビルドであっても同じです
  * Google 日本語入力であれば入力が可能な事を確認しました  
-(ただしIMEパッチ適用時のような、変換中の文字が Emacs 内で表示される訳ではありません)
+(ただしIMEパッチ適用時のような、Emacs との連携がありません)
  * ちなみに、標準状態で日本語が全く入力出来ない訳ではありません  
 C-\ で日本語入力が可能です (変換効率は悪いですが…コメント入力程度であれば問題ありません)  
 Help は C-\ で日本語入力モードにした後に C-h C-\ return で見る事が出来ます  
@@ -67,12 +67,12 @@ Help は C-\ で日本語入力モードにした後に C-h C-\ return で見る
 ビルド方法
 ----------
 
-<http://ftp.gnu.org/gnu/emacs/emacs-24.4.tar.xz>
+<http://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.xz>
 を、ソースに一切手を加えずにビルドします。
 
 ### MSYS2 のインストール
 <http://sourceforge.net/projects/msys2/>
-から **msys2-x86_64-20141003.exe** (2014/10/22 時点の最新) を取得しインストールします。
+から **msys2-x86_64-20150202.exe** (2015/4/14 時点の最新) を取得しインストールします。
 
 ### 64ビット環境用のシェルの起動
 インストールディレクトリ (c:/msys64) 直下の **mingw64_shell.bat** を起動します。
@@ -84,8 +84,8 @@ Help は C-\ で日本語入力モードにした後に C-h C-\ return で見る
     どちらもかなり時間が掛かります
 
 ### ビルドとインストール
-    $ tar xvJf emacs-24.4.tar.xz
-    $ cd emacs-24.4/
+    $ tar xvJf emacs-24.5.tar.xz
+    $ cd emacs-24.5/
 
     ソースを展開してディレクトリに移動します
 
@@ -100,19 +100,18 @@ Help は C-\ で日本語入力モードにした後に C-h C-\ return で見る
     デフォで MINGW64 になって configure がコケるので騙す為です (32bit ビルドになる訳ではありません)
     これがミソ
 
-    $ CFLAGS='-Ofast -march=corei7 -mtune=corei7' ./configure
+    $ CFLAGS='-Ofast -march=corei7 -mtune=corei7' ./configure --without-dbus
 
     CFLAGS で適当な最適化オプションを指定します
-    ※ --prefix=c:/emacs24.4 と指定した時に site-lisp/ が認識されない不具合が発生したので --prefix は付けません
+    ※ --prefix=c:/emacs24.5 と指定した時に site-lisp/ が認識されない不具合が発生したので --prefix は付けません
+    ※ --without-dbus は Windows 環境では全く使われない D-Bus の機能を無効にする為です
+    ※ 更に --without-dbus をする事で pop.c で発生するコンパイルエラーを抑制出来ます (getaddrinfo() を検出する時にリンクエラーが発生して偶然無効になる為…)
 
     $ make bootstrap && make install
 
     これでおしまい (make install-strip するとなぜか exe が壊れます…原因調査中)
     
     --prefix を付けないと c:/msys64/usr/local/ 以下にインストールされています
-
-### 今後の予定
-* ~~IME パッチの適用~~ (別途追加しました)
 
 ## 謝辞
 そもそもの発端は、公式ビルド含め巷のビルドは自分で納得できるものがなかったので  
@@ -152,7 +151,7 @@ Have Fun!
       Does Emacs use imagemagick?                             no
       Does Emacs support sound?                               yes
       Does Emacs use -lgpm?                                   no
-      Does Emacs use -ldbus?                                  yes
+      Does Emacs use -ldbus?                                  no
       Does Emacs use -lgconf?                                 no
       Does Emacs use GSettings?                               no
       Does Emacs use a file notification library?             yes (w32)
@@ -189,7 +188,7 @@ Have Fun!
       Does Emacs use imagemagick?                             no
       Does Emacs support sound?                               yes
       Does Emacs use -lgpm?                                   no
-      Does Emacs use -ldbus?                                  yes
+      Does Emacs use -ldbus?                                  no
       Does Emacs use -lgconf?                                 no
       Does Emacs use GSettings?                               no
       Does Emacs use a file notification library?             yes (w32)
@@ -207,14 +206,13 @@ Have Fun!
       Does Emacs support RECONVERSION?                        yes
       Does Emacs support DOCUMENTFEED?                        yes
 
-### emacs-24.4/bin/*.dll の依存関係など
+### emacs-24.5/bin/*.dll の依存関係など
 * 以下の DLL 以外追加したファイルはありません
 * DLL は全て MSYS2 からコピーしたものです
 * 依存関係は Windows に標準インストールされているものは含めていません
 ```
  emacs.exe
- ├ libwinpthread-1.dll
- └ libdbus-1-3.dll
+ └ libwinpthread-1.dll
  
  XPM
  libXpm-noX4.dll
@@ -239,7 +237,6 @@ Have Fun!
  LIBXML2
  libxml2-2.dll
  ├ libiconv-2.dll
- ├ liblzma-5.dll
  └ zlib1.dll
  
  GnuTLS
@@ -260,10 +257,10 @@ Have Fun!
 ```
 
 ### Help から C のソースに設定無しで飛ぶ方法
-* emacs-24.4.zip を c:/emacs-24.4 に展開して emacs-24.4.tar.xz を同じフォルダに展開すると
+* emacs-24.5.zip を c:/emacs-24.5 に展開して emacs-24.5.tar.xz を同じフォルダに展開すると
 Help から C のソースに自動で飛ぶようになります
-(emacs-24.4.zip と emacs-24.4.tar.xz は被るフォルダやファイルは無いので上書きの心配はありません)
- * c:/emacs-24.4 でないと毎回聞かれる事になるので、以下の設定が必要です
+(emacs-24.5.zip と emacs-24.5.tar.xz は被るフォルダやファイルは無いので上書きの心配はありません)
+ * c:/emacs-24.5 でないと毎回聞かれる事になるので、以下の設定が必要です
   ```emacs-lisp
     (setq source-directory "/path/to/emacs/source/dir")
   ```
