@@ -90,6 +90,9 @@ IMEを有効にするには以下の設定が必要です
       (dolist (dll (directory-files dir t "\\.dll$"))
         (warn dll)))
   ```
+* 言語の詳細設定の「アプリウィンドウごとに異なる入力方式を設定する」にチェックを入れていると日本語入力に切り替わらない問題があるようです  
+詳細は以下の issue を参照してください  
+https://github.com/chuntaro/NTEmacs64/issues/3
 
 ビルド方法
 ----------
